@@ -1,0 +1,18 @@
+#EXAMPLE docker-compose file, showing default values
+#You MUST edit this file before running
+services:
+  owncastrecorder:
+    image: owncastrecorder
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./test:/data:rw
+    environment:
+      SERVER: https://oc.mysite.com
+      INTERVAL: 1
+      RETRIES: 2
+      OUTFORMAT: '%m-%d-%y_%H;%M;%S_{stream_title}'
+      SEGTIME: 10
+      DELETETSFILES: 'true'
+      VERBOSITY: 2
